@@ -1,5 +1,13 @@
 --
 
+{{ config(
+    materialized='incremental',
+    incremental_strategy='merge',
+    unique_key='patient_id',
+    on_schema_change='sync_all_columns',
+    tags=['intermediate_tables','daily','patients']
+) }}
+
 -- PART 1
 -- TASK: Create a dimension model for patients
 -- Reference raw_patients and stg_claims
@@ -15,7 +23,8 @@ with patients as (
 ),
 
 claims as (
-    select * from {{ ref('stg_claims') }}
+    select *
+    from {{ ref('stg_claims') }}
 ),
 
 aggregated_claims as (
@@ -35,10 +44,16 @@ final as (
         ac.first_claim_date,
         ac.total_claims,
         ac.total_claim_amount,
-        ac.days_since_first_claim
+        ac.days_since_first_claim,
+        current_timestamp() as loaded_at
     from patients p
     left join aggregated_claims ac
         on p.patient_id = ac.patient_id
+    {% if is_incremental() %}
+    where
+        ac.first_claim_date is not null
+        and {{ apply_incremental_filter('first_claim_date') }}
+    {% endif %}
 )
 
 select * from final

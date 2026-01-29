@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: dim_patients
+    description: "{{ doc('dim_patients') }}"
+    columns:
+      - name: patient_id
+        description: "Unique identifier for each patient."
+        tests:
+          - not_null
+          - unique
+      - name: first_claim_date
+        description: "First recorded claim date for the patient."
+      - name: total_claims
+        description: "Total number of claims for the patient."
+      - name: total_claim_amount
+        description: "Total claim amount for the patient."
+      - name: days_since_first_claim
+        description: "Days since the patient's first claim."
+      - name: loaded_at
+        description: "Timestamp indicating when the record was processed and loaded."

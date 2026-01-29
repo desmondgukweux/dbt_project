@@ -18,5 +18,9 @@ models:
   health_analytics_assessment:
     staging:
       +materialized: view
+    intermediate:
+      +materialized: view
     marts:
       +materialized: table
+    dashboard:
+      +materialized: view

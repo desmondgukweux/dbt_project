@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: dsh_patient_claims
+    description: "{{ doc('dsh_patient_claims') }}"
+    columns:
+      - name: patient_id
+        description: "Unique identifier for each patient."
+      - name: first_claim_date
+        description: "First recorded claim date for the patient."
+      - name: last_claim_date
+        description: "Most recent claim date for the patient."
+      - name: total_claims
+        description: "Total number of claims for the patient."
+      - name: total_claim_amount
+        description: "Total claim amount for the patient."
+      - name: days_since_first_claim
+        description: "Days since the patient's first claim."
+      - name: loaded_at
+        description: "Timestamp indicating when the record was processed and loaded."

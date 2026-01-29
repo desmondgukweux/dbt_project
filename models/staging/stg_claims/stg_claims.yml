@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_claims
+    description: "{{ doc('stg_claims') }}"
+    columns:
+      - name: claim_id
+        description: "Unique identifier for each claim."
+        tests:
+          - not_null
+          - unique
+      - name: patient_id
+        description: "Identifier for the patient associated with the claim."
+        tests:
+          - not_null
+      - name: claim_date
+        description: "Date the claim was made."
+        tests:
+          - not_null
+      - name: claim_amount
+        description: "Monetary value of the claim."
+      - name: diagnosis_code
+        description: "Diagnosis code associated with the claim."
+      - name: claim_month
+        description: "Month bucket derived from claim_date."
+      - name: loaded_at
+        description: "Timestamp indicating when the record was processed and loaded."
