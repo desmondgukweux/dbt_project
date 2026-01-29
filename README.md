@@ -71,7 +71,7 @@ Proper data type casting ensures consistency and accuracy across all transformat
         Use `int` for non-decimal numbers such as quantities
         Example: `sales_quantity::int`
     - **Categorical Data (Text/Strings):**
-        Use `string` or `varchar` for categorical data, such as names or labels. To maintain consistency within our team, prefer `string`
+        Use `string` or `varchar` for categorical data, such as names or labels. To maintain consistency within our team, prefer `string` 
         Example: `customer_name::string`
     - **Temporal Data (Timestamps and Dates):**
         ***Timestamps:***
