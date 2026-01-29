@@ -1,5 +1,5 @@
 ## Overview
-Welcome to the repository for health_analytics_assessment, our dbt project for managing data transformations and modeling. This README provides a detailed overview of our project architecture, naming conventions, and style guides.
+Welcome to the repository of our dbt project for managing data transformations and modeling. This README provides a detailed overview of our project architecture, naming conventions, and style guides.
 
 ## Table of Contents
 - [Project Architecture](#project-architecture)
