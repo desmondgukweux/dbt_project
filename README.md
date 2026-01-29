@@ -48,7 +48,7 @@ The dashboard layer contains models built specifically for BI tools and reportin
     - Use `_id` suffix for identifiers, e.g., `customer_id`.
     - **Surrogate key:** Each model should have a unique identifier per row that matches the model's grain. To create your unique identifier as a surrogate key as a combindation of columns from your model, please use this dbt function and structure: {{ dbt_utils.generate_surrogate_key(['column_name_1', 'column_name_2', '...']) }}. Each surrogate key should have a standardized name consisting of model_name + suffix `_id`, (e.g. for table `int_bc_customer` the surrogate key is called `int_bc_customer_id`)
 - **Boolean Columns:** 
-    - Use `is_` or `has_` for booleans, e.g., `is_active`, `has_children`.
+    - Use `is_` or `has_` for booleans, e.g., `is_active`.
 - **Aggregate Functions:** Use prefixes that describe the function:
     - Sum: `total_`, e.g., `total_amount`.
     - Count: `num_`, e.g., `num_records`.
